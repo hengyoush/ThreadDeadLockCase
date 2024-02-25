@@ -48,6 +48,10 @@ jobs:
         password: 1179332922 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: extract_branch
     - name: Build and push Docker image
       uses: docker/build-push-action@v5.1.0
       with:
@@ -55,4 +59,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKER_HUB_USERNAME }}/my-spring-boot-app:${GITHUB_REF#refs/heads/}
+          ${{ secrets.DOCKER_HUB_USERNAME }}/my-spring-boot-app:${{ steps.extract_branch.outputs.branch }}
