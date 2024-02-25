@@ -4,5 +4,5 @@ git config --global user.name "you"
 git add --all
 git commit -m "commit"
 export git_username=hengyoush && export git_url=$(git remote get-url --push origin) \
-&& export github_token=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  \
+&& export github_token=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  \
 &&  echo "git push $git_url" | sed -e "s|https://|https://$git_username:$github_token@|" | sh
