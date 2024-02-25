@@ -55,4 +55,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKER_HUB_USERNAME }}/my-spring-boot-app:${{ github.ref }}
+          ${{ secrets.DOCKER_HUB_USERNAME }}/my-spring-boot-app:${GITHUB_REF#refs/heads/}
