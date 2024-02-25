@@ -59,4 +59,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKER_HUB_USERNAME }}/my-spring-boot-app:${{ steps.extract_branch.outputs.branch }}
+          hengyoush/my-spring-boot-app:${{ steps.extract_branch.outputs.branch }}
