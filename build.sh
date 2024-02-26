@@ -7,7 +7,7 @@ GITHUB_TOKEN=$2
 GITHUB_BRANCH=$3
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
-if ["$current_branch" != "$GITHUB_BRANCH"]; then
+if [ "$current_branch" != "$GITHUB_BRANCH" ]; then
   git checkout -B "$GITHUB_BRANCH"
 fi
 
