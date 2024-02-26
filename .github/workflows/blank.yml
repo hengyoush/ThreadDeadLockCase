@@ -59,3 +59,9 @@ jobs:
         push: true
         tags: |
           hengyoush/my-spring-boot-app:${{ steps.extract_branch.outputs.branch }}
+    - name: Send HTTP Request
+      uses: Tyrrrz/action-http-request@1.1.2
+      with:
+        url: http://deadlock.cloud/spe/exp/redeploy-callback?success=true&branchName=${{ steps.extract_branch.outputs.branch }}
+        method: GET
+          
