@@ -64,4 +64,5 @@ jobs:
       with:
         url: http://deadlock.cloud/spe/exp/redeploy-callback?success=true&branchName=${{ steps.extract_branch.outputs.branch }}
         method: GET
+        fail-on-error: false
           
