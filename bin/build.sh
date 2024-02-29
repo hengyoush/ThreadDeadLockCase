@@ -1,3 +1,4 @@
+#!/bin/sh
 git config --global --add safe.directory /home/coder/project
 git config --global user.email "hengyoush1@163.com"
 git config --global user.name "hengyoush"
