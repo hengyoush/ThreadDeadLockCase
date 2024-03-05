@@ -58,7 +58,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          hengyoush/my-spring-boot-app:${{ steps.extract_branch.outputs.branch }}
+          hengyoush/${{ github.repository }}:${{ steps.extract_branch.outputs.branch }}
     - name: Send HTTP Request
       uses: Tyrrrz/action-http-request@1.1.2
       with:

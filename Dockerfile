@@ -15,7 +15,7 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # 将构建好的Spring Boot应用的JAR文件复制到镜像中
-COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
+COPY target/order-service-0.0.1-SNAPSHOT.jar app.jar
 
 COPY bin/startup.sh /app/startup.sh
 
