@@ -63,7 +63,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          hengyoush/${{ env.REPO_LC }}:${{ steps.extract_branch.outputs.branch }}
+          ${{ env.REPO_LC }}:${{ steps.extract_branch.outputs.branch }}
     - name: Send HTTP Request
       uses: Tyrrrz/action-http-request@1.1.2
       with:
