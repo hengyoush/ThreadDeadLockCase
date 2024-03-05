@@ -51,6 +51,11 @@ jobs:
       shell: bash
       run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
       id: extract_branch
+    - name: set lower case repo name
+      run: |
+        echo "REPO_LC=${REPO,,}" >>${GITHUB_ENV}
+      env:
+        REPO: '${{ github.repository }}'
     - name: Build and push Docker image
       uses: docker/build-push-action@v5.1.0
       with:
@@ -58,7 +63,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: |
-          hengyoush/${{ github.repository }}:${{ steps.extract_branch.outputs.branch }}
+          ${{ env.REPO_LC }}:${{ steps.extract_branch.outputs.branch }}
     - name: Send HTTP Request
       uses: Tyrrrz/action-http-request@1.1.2
       with:
