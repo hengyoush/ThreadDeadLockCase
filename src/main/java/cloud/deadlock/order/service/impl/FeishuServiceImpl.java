@@ -17,7 +17,7 @@ public class FeishuServiceImpl implements FeishuService {
     public void sendFeishuMessage(String message, String user) {
         Timer.builder("case.check.method.duration")
                 .tag("method_name", "sendFeishuMessage")
-                .tag("exp_id", EnvUtils.getEnv("EXP_ID"))
+                .tag("exp_id", EnvUtils.getEnv("EXP_ID") == null ? "unknwon" : EnvUtils.getEnv("EXP_ID"))
                 .register(meterRegistry).record(() -> {
                     Mock.mockTime(300);
         });
