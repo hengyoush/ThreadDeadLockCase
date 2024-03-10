@@ -20,7 +20,7 @@ public class OrderNotifyController {
     public AjaxResult notifyOrderComplete(@RequestBody  OrderNotifyRequest orderNotifyRequest) {
         try {
             orderNotifyService.notifyOrderComplete(orderNotifyRequest);
-            return new AjaxResult(200, "success");
+            return new AjaxResult(200, "success"); 
         } catch (Exception e) {
             return AjaxResult.error(e.getMessage());
         }
