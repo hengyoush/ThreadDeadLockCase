@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/order")
-public class OrderNotifyController {
+public class OrderNotifyController { 
 
     @Autowired
     private OrderNotifyService orderNotifyService;
