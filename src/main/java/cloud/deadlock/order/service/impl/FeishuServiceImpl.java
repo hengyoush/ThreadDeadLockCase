@@ -15,7 +15,7 @@ public class FeishuServiceImpl implements FeishuService {
 
     @Override
     public void sendFeishuMessage(String message, String user) {
-        Timer.builder("case.check.method.duration")
+        Timer.builder("case_check_method_duration")
                 .tag("method_name", "sendFeishuMessage")
                 .tag("exp_id", EnvUtils.getEnv("EXP_ID") == null ? "unknwon" : EnvUtils.getEnv("EXP_ID"))
                 .register(meterRegistry).record(() -> {

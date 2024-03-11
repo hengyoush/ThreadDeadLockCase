@@ -15,7 +15,7 @@ public class WechatImpl implements WechatService {
     private MeterRegistry meterRegistry;
 
     public void sendWechatMessage(String message, String user) {
-        Timer.builder("case.check.method.duration")
+        Timer.builder("case_check_method_duration")
                 .tag("method_name", "sendWechatMessage")
                 .tag("exp_id", EnvUtils.getEnv("EXP_ID") == null ? "unknwon" : EnvUtils.getEnv("EXP_ID"))
                 .register(meterRegistry).record(() -> {
