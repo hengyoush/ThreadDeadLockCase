@@ -27,6 +27,9 @@ public class OrderNotifyServiceImpl implements OrderNotifyService {
     private ExecutorService threadPool =
             new ThreadPoolExecutor(5, 10, 60,
                     TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000));
+                    private ExecutorService threadPool1 =
+                            new ThreadPoolExecutor(5, 10, 60,
+                                    TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000));
 
     /**
      * <通知订单完成>
@@ -75,13 +78,13 @@ public class OrderNotifyServiceImpl implements OrderNotifyService {
     private CompletableFuture<Void> sendFeishuAsync(String orderNo, User user) {
         return CompletableFuture.runAsync(() -> {
             feishuService.sendFeishuMessage("Order " + orderNo + " is complete", user.getName());
-        }, threadPool);
+        }, threadPool1);
     }
 
     private CompletableFuture<Void> sendWechatAsync(String orderNo, User user) {
         CompletableFuture<Void> wechatFuture = CompletableFuture.runAsync(() -> {
             wechatService.sendWechatMessage("Order " + orderNo + " is complete", user.getName());
-        }, threadPool);
+        }, threadPool1);
         return wechatFuture;
     }
 }
